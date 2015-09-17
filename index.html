@@ -168,6 +168,9 @@
           this.angle = 0;
           this.x = 0;
           this.grabbing = false;
+          this.spinningSpeed = 2;
+          this.maxMoveForClick = 5;
+          this.totalAmountMoved = 0;
           this.$container.mousedown(this.mouseDownHandler.bind(this));
           $(window)
             .mousemove(this.mouseMoveHandler.bind(this))
@@ -188,11 +191,15 @@
 
         MirrorSpinner.prototype.mouseDownHandler = function (e) {
           this.grabbing = true;
+          this.totalAmountMoved = 0;
           this.$container.addClass('grabbing');
           this.x = e.screenX;
         };
 
-        MirrorSpinner.prototype.mouseUpHandler = function (e) {
+        MirrorSpinner.prototype.mouseUpHandler = function () {
+          if (this.totalAmountMoved < this.maxMoveForClick) {
+            this.rotate(this.angle + 180);
+          }
           this.grabbing = false;
           this.$container.removeClass('grabbing');
           this.$spinnings.css('transition', 'transform 0.3s ease-out');
@@ -209,7 +216,9 @@
           if (!this.grabbing) {
             return;
           }
-          var angle = this.angle + (e.screenX - this.x) * 2;
+          var amountMoved = (e.screenX - this.x);
+          this.totalAmountMoved += Math.abs(amountMoved);
+          var angle = this.angle + amountMoved * this.spinningSpeed;
           this.x = e.pageX;
           this.rotate(angle);
         };
