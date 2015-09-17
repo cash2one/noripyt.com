@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>NoriPyt</title>
+    <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.ico">
+    <style>
+      @font-face {
+        font-family: 'Linux Libertine';
+        font-style: normal;
+        font-weight: normal;
+        src: url(static/fonts/LinLibertine_R.woff) format('woff2');
+      }
+      @font-face {
+        font-family: 'Linux Libertine';
+        font-style: normal;
+        font-weight: bold;
+        src: url(static/fonts/LinLibertine_RB.woff) format('woff2');
+      }
+      @font-face {
+        font-family: 'Linux Libertine';
+        font-style: italic;
+        font-weight: normal;
+        src: url(static/fonts/LinLibertine_RI.woff) format('woff2');
+      }
+      @font-face {
+        font-family: Moon;
+        font-style: normal;
+        font-weight: normal;
+        src: url(static/fonts/Moon Light.woff) format('woff2');
+      }
+      @font-face {
+        font-family: Moon;
+        font-style: normal;
+        font-weight: bold;
+        src: url(static/fonts/Moon Bold.woff) format('woff2');
+      }
+      body {
+        position: relative;
+        max-width: 450px;
+        margin: 0 auto;
+        font-family: 'Linux Libertine', serif;
+        background: #1a1a1a;
+        color: #dcdcdc;
+        -webkit-font-feature-settings: 'kern','liga','dlig';
+        -moz-font-feature-settings: 'kern','liga','dlig';
+        -ms-font-feature-settings: 'kern','liga','dlig';
+        -o-font-feature-settings: 'kern','liga','dlig';
+        font-feature-settings: 'kern','liga','dlig';
+        font-size: 17px;
+      }
+      .container {
+        margin-top: 30px;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        font-weight: normal;
+        font-family: Moon, sans-serif;
+      }
+      img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+      }
+      a {
+        color: #db1e26;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .center {
+        text-align: center;
+      }
+      .infos {
+        margin-top: 30px;
+      }
+      .info-block {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+      .sc {
+        -webkit-font-feature-settings: 'kern','liga','dlig','smcp';
+        -moz-font-feature-settings: 'kern','liga','dlig','smcp';
+        -ms-font-feature-settings: 'kern','liga','dlig','smcp';
+        -o-font-feature-settings: 'kern','liga','dlig','smcp';
+        font-feature-settings: 'kern','liga','dlig','smcp';
+      }
+      .name {
+        font-size: 22px;
+      }
+      * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .mirror-hover {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: -webkit-grab;
+        cursor: -moz-grab;
+        perspective: 500px;
+      }
+      .mirror-hover.grabbing {
+        cursor: move;
+      }
+      .panel {
+        display: inline-block;
+        text-align: left;
+        width: 50%;
+        padding-left: 15px;
+        border-left: 1px solid #dcdcdc;
+      }
+      .panel.rtl {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="static/images/logo-vertical-defonce.png" style="width: 304px; max-height: 300px;" />
+
+      <div class="infos">
+        <div class="center">
+          <div class="info-block">
+            <h1>Tiny web agency</h1>
+            <p>Come, discuss, we’ll build what you’re dreaming of.</p>
+          </div>
+
+          <div class="info-block">
+            <h2>Who we are</h2>
+
+            <div class="mirror-hover">
+              <div class="spinning">
+                <div class="panel rtl">
+                  <a href="http://blog.bordage.pro" class="name">Bertrand <span class="sc">Bordage</span><br /></a>
+                  Developer – Typographer<br />
+                </div><div class="panel">
+                  <a href="http://www.doyoubuzz.com/julie-graine" class="name">Julie <span class="sc">Graine</span></a><br />
+                  Project manager – Archivist<br />
+                </div>
+              </div>
+              <div>Musicians</div>
+              <div class="spinning">
+                <div class="panel rtl">
+                  Baroque
+                </div><div class="panel">
+                  Modern
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <h2>Where we are</h2>
+            <strong>Seine Innopolis</strong><br />
+            72 rue de la République<br />
+            76140 <span class="sc">Le Petit-Quevilly</span> –
+            <span class="sc">France</span><br />
+            <a href="mailto:contact@noripyt.com">contact@noripyt.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+      $(function () {
+        function MirrorSpinner(container) {
+          this.$container = $(container);
+          this.$spinnings = this.$container.find('.spinning');
+          this.angle = 0;
+          this.x = 0;
+          this.grabbing = false;
+          this.$container.mousedown(this.mouseDownHandler.bind(this));
+          $(window)
+            .mousemove(this.mouseMoveHandler.bind(this))
+            .mouseup(this.mouseUpHandler.bind(this));
+        }
+
+        MirrorSpinner.prototype.rotate = function (angle) {
+          if (!(angle >= 0 && angle <= 360)) {
+            angle %= 360;
+            if (angle < 0) {
+              angle += 360;
+            }
+            this.$spinnings.css('transition', '');
+          }
+          this.$spinnings.css('transform', 'rotateY(' + angle + 'deg)');
+          this.angle = angle;
+        };
+
+        MirrorSpinner.prototype.mouseDownHandler = function (e) {
+          this.grabbing = true;
+          this.$container.addClass('grabbing');
+          this.x = e.screenX;
+        };
+
+        MirrorSpinner.prototype.mouseUpHandler = function (e) {
+          this.grabbing = false;
+          this.$container.removeClass('grabbing');
+          this.$spinnings.css('transition', 'transform 0.3s ease-out');
+          if ((this.angle >= 90) && (this.angle <= 270)) {
+            this.rotate(180);
+          } else if (this.angle > 270) {
+            this.rotate(360);
+          } else {
+            this.rotate(0);
+          }
+        };
+
+        MirrorSpinner.prototype.mouseMoveHandler = function (e) {
+          if (!this.grabbing) {
+            return;
+          }
+          var angle = this.angle + (e.screenX - this.x) * 2;
+          this.x = e.pageX;
+          this.rotate(angle);
+        };
+
+        new MirrorSpinner($('.mirror-hover')[0]);
+      });
+    </script>
+  </body>
+</html>
