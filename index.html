@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=450, user-scalable=no" />
     <title>NoriPyt</title>
     <link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.ico">
     <style>
@@ -9,29 +10,29 @@
         font-family: 'Linux Biolinum';
         font-style: normal;
         font-weight: normal;
-        src: url(static/fonts/LinBiolinum_R.woff) format('woff2');
+        src: url('static/fonts/LinBiolinum_R.woff') format('woff2');
       }
       @font-face {
         font-family: 'Linux Biolinum';
         font-style: normal;
         font-weight: bold;
-        src: url(static/fonts/LinBiolinum_RB.woff) format('woff2');
+        src: url('static/fonts/LinBiolinum_RB.woff') format('woff2');
       }
       @font-face {
         font-family: Moon;
         font-style: normal;
         font-weight: normal;
-        src: url(static/fonts/Moon Light.woff) format('woff2');
+        src: url('static/fonts/Moon Light.woff') format('woff2');
       }
       @font-face {
         font-family: Moon;
         font-style: normal;
         font-weight: bold;
-        src: url(static/fonts/Moon Bold.woff) format('woff2');
+        src: url('static/fonts/Moon Bold.woff') format('woff2');
       }
       body {
         position: relative;
-        max-width: 450px;
+        width: 450px;
         margin: 0 auto;
         font-family: 'Linux Biolinum', serif;
         background: #1a1a1a;
@@ -168,13 +169,17 @@
           this.angle = 0;
           this.x = 0;
           this.grabbing = false;
-          this.spinningSpeed = 2;
+          this.spinningSpeed = 1.2;
           this.maxMoveForClick = 5;
           this.totalAmountMoved = 0;
-          this.$container.mousedown(this.mouseDownHandler.bind(this));
+          this.$container
+            .mousedown(this.mouseDownHandler.bind(this))
+            .on('touchstart', this.touchStartHandler.bind(this));
           $(window)
             .mousemove(this.mouseMoveHandler.bind(this))
-            .mouseup(this.mouseUpHandler.bind(this));
+            .mouseup(this.mouseUpHandler.bind(this))
+            .on('touchmove', this.touchMoveHandler.bind(this))
+            .on('touchend', this.mouseUpHandler.bind(this));
         }
 
         MirrorSpinner.prototype.rotate = function (angle) {
@@ -193,11 +198,11 @@
           this.grabbing = true;
           this.totalAmountMoved = 0;
           this.$container.addClass('grabbing');
-          this.x = e.screenX;
+          this.x = e.pageX;
         };
 
         MirrorSpinner.prototype.mouseUpHandler = function () {
-          if (this.totalAmountMoved < this.maxMoveForClick) {
+          if (this.grabbing && this.totalAmountMoved < this.maxMoveForClick) {
             this.rotate(this.angle + 180);
           }
           this.grabbing = false;
@@ -216,11 +221,21 @@
           if (!this.grabbing) {
             return;
           }
-          var amountMoved = (e.screenX - this.x);
+          var amountMoved = (e.pageX - this.x);
           this.totalAmountMoved += Math.abs(amountMoved);
           var angle = this.angle + amountMoved * this.spinningSpeed;
           this.x = e.pageX;
           this.rotate(angle);
+        };
+
+        MirrorSpinner.prototype.touchStartHandler = function (e) {
+          e.pageX = e.originalEvent.touches[0].pageX;
+          this.mouseDownHandler(e);
+        };
+
+        MirrorSpinner.prototype.touchMoveHandler = function (e) {
+          e.pageX = e.originalEvent.touches[0].pageX;
+          this.mouseMoveHandler(e);
         };
 
         new MirrorSpinner($('.mirror-hover')[0]);
