@@ -90,10 +90,11 @@ function updateCards() {
 }
 
 $(function () {
-  $('.card').find('img, .header').click(function (e) {
+  $('.card.collapsible').find('img, .collapse-indicator, .header').click(function (e) {
     e.preventDefault();
     var $card = $(this).parents('.card');
     $card.toggleClass('active');
+    $card.find('.collapse-indicator .fa').toggleClass('fa-flip-vertical');
     updateCard($card);
   });
   updateCards();

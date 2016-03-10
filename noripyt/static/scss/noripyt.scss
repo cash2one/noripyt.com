@@ -140,31 +140,44 @@ hr {
   margin-top: $grid-gutter-width / 2;
   margin-bottom: $grid-gutter-width / 2;
   overflow: hidden;
+  &.collapsible {
+    img, .collapse-indicator, .header {
+      cursor: pointer;
+    }
+  }
   img {
     max-width: 100%;
-    cursor: pointer;
   }
   .caption {
     position: absolute;
     width: 100%;
     max-height: 100%;
     overflow: hidden;
-    transition: top 0.3s ease-out;
+    transition: top 0.5s ease-out;
     .background {
       position: absolute;
       background-size: cover;
       width: 100%;
       height: 100%;
       filter: grayscale(100%) blur(3px) brightness(0.4);
-      transition: background-position-y 0.3s ease-out;
+      transition-property: background-position-y, filter;
+      transition-duration: 0.5s;
+      transition-timing-function: ease-out;
     }
     .content {
       position: relative;
       text-align: center;
       color: #eee;
+      .collapse-indicator {
+        height: 0;
+        line-height: $grid-gutter-width;
+        transition: color 0.5s ease-out;
+        .fa {
+          transition: transform 0.5s ease-out;
+        }
+      }
       .header {
         padding: $grid-gutter-width;
-        cursor: pointer;
         :first-child {
           margin-top: 0;
         }
@@ -183,6 +196,13 @@ hr {
         @media (max-width: $screen-xs-max) {
           margin: 0 0 $grid-gutter-width / 2 $grid-gutter-width / 2;
         }
+      }
+    }
+  }
+  &.collapsible:not(.active):hover {
+    .caption {
+      .background {
+        filter: grayscale(80%) blur(1px) brightness(0.5);
       }
     }
   }

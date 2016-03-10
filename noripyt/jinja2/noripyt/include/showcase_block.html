@@ -1,8 +1,13 @@
-<div class="card">
+<div class="card{% if value.description %} collapsible{% endif %}">
   <img src="{{ image(value.image, 'original').url }}" />
   <div class="caption">
     <div class="background" style="background-image: url({{ image(value.image, 'original').url }});"></div>
     <div class="content">
+      {% if value.description %}
+        <div class="collapse-indicator">
+          <i class="fa fa-chevron-up"></i>
+        </div>
+      {% endif %}
       <div class="header">
         <h3>{{ value.title }}</h3>
         {% if value.subtitle %}
