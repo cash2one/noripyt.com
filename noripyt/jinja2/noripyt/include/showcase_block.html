@@ -1,0 +1,19 @@
+<div class="card">
+  <img src="{{ image(value.image, 'original').url }}" />
+  <div class="caption">
+    <div class="background" style="background-image: url({{ image(value.image, 'original').url }});"></div>
+    <div class="content">
+      <div class="header">
+        <h3>{{ value.title }}</h3>
+        {% if value.subtitle %}
+          <h5>{{ value.subtitle }}</h5>
+        {% endif %}
+      </div>
+      {% if value.description %}
+        <div class="description">
+          {{ value.description|richtext }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

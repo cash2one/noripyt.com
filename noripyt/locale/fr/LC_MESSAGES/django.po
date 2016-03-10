@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-10 11:20+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: blocks.py:10
+msgid "Title"
+msgstr "Titre"
+
+#: blocks.py:11
+msgid "Subtitle"
+msgstr "Sous-titre"
+
+#: blocks.py:12
+msgid "Image"
+msgstr "Image"
+
+#: blocks.py:14
+msgid "Description"
+msgstr "Description"
+
+#: blocks.py:17
+msgid "Showcase"
+msgstr "Étalage"
+
+#: blocks.py:27
+msgid "Width"
+msgstr "Largeur"
+
+#: blocks.py:31
+msgid "Body"
+msgstr "Corps"
+
+#: blocks.py:34
+msgid "Column"
+msgstr "Colonne"
+
+#: blocks.py:43
+msgid "Row"
+msgstr "Rangée"
+
+#: jinja2/footer.html:6
+msgid "at"
+msgstr "à"
+
+#: jinja2/navbar.html:7
+msgid "Toggle navigation"
+msgstr "Afficher/masquer la navigation"
+
+#: jinja2/navbar.html:12
+msgid "Back to the home page"
+msgstr "Retour à l’accueil"
+
+#: jinja2/navbar.html:42
+msgid "Call us! In English or French."
+msgstr "Appelez-nous ! En français ou anglais."
+
+#: jinja2/navbar.html:47
+msgid "Mail us!"
+msgstr "Envoyez-nous un mail !"
+
+#: jinja2/navbar.html:52
+msgid "Tweet us!"
+msgstr "Envoyez-nous un tweet !"
+
+#: jinja2/navbar.html:57
+msgid "Contact:"
+msgstr "Contact :"
+
+#: models.py:27
+msgid "french page"
+msgstr "page française"
+
+#: models.py:66 models.py:78
+msgid "Text"
+msgstr "Texte"
+
+#: models.py:69 models.py:81
+msgid "body"
+msgstr "corps"
+
+#: models.py:89
+msgid "redirect URL"
+msgstr "URL de redirection"
+
+#: models.py:90
+msgid "icon"
+msgstr "icône"

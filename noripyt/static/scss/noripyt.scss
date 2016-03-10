@@ -1,0 +1,217 @@
+@import 'variables';
+@import 'bootstrap';
+@import '../font-awesome/scss/font-awesome';
+@import 'mixins';
+
+//
+// Global styling
+//
+
+@include declare-font(
+  'Linux Biolinum', normal, normal, '../fonts/LinBiolinum_R.woff');
+@include declare-font(
+  'Linux Biolinum', normal, bold, '../fonts/LinBiolinum_RB.woff');
+@include declare-font(
+  'Linux Biolinum', italic, normal, '../fonts/LinBiolinum_RI.woff');
+@include declare-font(
+  'Linux Libertine', normal, normal, '../fonts/LinLibertine_R.woff');
+@include declare-font(
+  'Linux Libertine', normal, bold, '../fonts/LinLibertine_RB.woff');
+@include declare-font(
+  'Linux Libertine', italic, normal, '../fonts/LinLibertine_RI.woff');
+@include declare-font(
+  'Linux Libertine', italic, bold, '../fonts/LinLibertine_RBI.woff');
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  overflow-y: scroll;
+  font-feature-settings: 'kern', 'liga', 'dlig';
+  @media (min-width: $screen-md-min) {
+    margin-bottom: $footer-height;
+  }
+
+  > footer {
+    @include color-inverse;
+    @media (min-width: $screen-sm-min) {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: $footer-height;
+      @media (max-width: $screen-sm-max) {
+        height: $footer-height * 2;
+      }
+    }
+    .container {
+      .infos {
+        padding-top: $grid-gutter-width * 3/2;
+        padding-bottom: $grid-gutter-width * 3/2;
+        address {
+          color: white;
+          h3 {
+            margin-top: 0;
+            small {
+              color: white;
+            }
+          }
+        }
+        .legals {
+          margin-bottom: 0;
+        }
+        @media (max-width: $screen-sm-max) {
+          text-align: center;
+        }
+      }
+      #map {
+        height: $footer-height;
+      }
+    }
+  }
+}
+
+main {
+  margin-top: $navbar-height + 1px;  // We add the bottom border of 1 px.
+  padding-bottom: $grid-gutter-width;
+  p {
+    text-align: justify;
+    @media (max-width: $screen-sm-max) {
+      text-align: left;
+    }
+  }
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.sc {
+  font-feature-settings: 'kern', 'liga', 'dlig', 'smcp';
+}
+
+.navbar-brand {
+  svg {
+    height: $line-height-computed;
+    .nori, .pyt {
+      path {
+        transition: fill 0.3s ease;
+      }
+    }
+    .nori path {
+      fill: $link-color;
+    }
+    .pyt path {
+      fill: white;
+    }
+  }
+  &:hover svg {
+    .nori path {
+      fill: white;
+    }
+    .pyt path {
+      fill: $link-color;
+    }
+  }
+}
+
+hr {
+  border-color: transparent !important;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: calc(100% - #{$hr-thickness});
+    border: ($hr-thickness / 2) solid $hr-border;
+  }
+}
+
+.fa {
+  vertical-align: -10%;
+}
+
+.card {
+  position: relative;
+  margin-top: $grid-gutter-width / 2;
+  margin-bottom: $grid-gutter-width / 2;
+  overflow: hidden;
+  img {
+    max-width: 100%;
+    cursor: pointer;
+  }
+  .caption {
+    position: absolute;
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    transition: top 0.3s ease-out;
+    .background {
+      position: absolute;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      filter: grayscale(100%) blur(3px) brightness(0.4);
+      transition: background-position-y 0.3s ease-out;
+    }
+    .content {
+      position: relative;
+      text-align: center;
+      color: #eee;
+      .header {
+        padding: $grid-gutter-width;
+        cursor: pointer;
+        :first-child {
+          margin-top: 0;
+        }
+        :last-child {
+          margin-bottom: 0;
+        }
+        @media (max-width: $screen-xs-max) {
+          padding: $grid-gutter-width / 2;
+        }
+      }
+      .description {
+        overflow-y: auto;
+        margin: 0 $grid-gutter-width / 2 $grid-gutter-width $grid-gutter-width;
+        padding-right: $grid-gutter-width / 2;
+        cursor: initial;
+        @media (max-width: $screen-xs-max) {
+          margin: 0 0 $grid-gutter-width / 2 $grid-gutter-width / 2;
+        }
+      }
+    }
+  }
+}
+
+//
+// Wagtail specific
+//
+
+.rich-text img {
+  max-width: 100%;
+  height: auto;
+}
+
+.responsive-object {
+  position: relative;
+  iframe, object, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}

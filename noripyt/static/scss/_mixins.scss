@@ -1,0 +1,20 @@
+//
+// Mixins
+//
+
+@mixin declare-font($family, $style, $weight, $url) {
+  @font-face {
+    font-family: $family;
+    font-style: $style;
+    font-weight: $weight;
+    src: url($url) format('woff');
+  }
+}
+
+@mixin color-inverse {
+  color: $navbar-inverse-color;
+  background-color: $navbar-inverse-bg;
+  a {
+    color: $navbar-inverse-link-color;
+  }
+}

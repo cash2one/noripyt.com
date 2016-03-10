@@ -1,0 +1,60 @@
+{% set home=request.site.root_page.get_children().get(slug=translation.get_language()) %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">{{ _('Toggle navigation') }}</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ pageurl(home) }}" title="{{ _('Back to the home page') }}" data-placement="bottom">
+        {% include 'svg/logo.svg' %}
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        {% for sub_page in home.get_children().in_menu().live().specific() %}
+          <li{% if page.get_ancestors(inclusive=True).filter(pk=sub_page.pk).exists() %} class="active"{% endif %}>
+            <a href="{{ pageurl(sub_page) }}">
+              {% if sub_page.icon %}<i class="fa fa-{{ sub_page.icon }}"></i>{% endif %}
+              {{ sub_page }}
+            </a>
+          </li>
+        {% endfor %}
+      {% for lang_code, lang_verbose in LANGUAGES %}
+        {% if lang_code != translation.get_language() %}
+          {% set page_for_lang=page.get_for_lang(lang_code) %}
+          {% if page_for_lang %}
+            <li>
+              <a href="{{ pageurl(page_for_lang) }}">
+                <i class="fa fa-fw fa-language"></i> {{ lang_verbose }}
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="tel:+33652711436" title="{{ _('Call us! In English or French.') }}" data-placement="bottom">
+            <i class="fa fa-fw fa-phone"></i> +33 6 52 71 14 36
+          </a>
+        </li>
+        <li>
+          <a href="mailto:contact@noripyt.com" target="_blank" title="{{ _('Mail us!') }}" data-placement="bottom">
+            <i class="fa fa-fw fa-envelope"></i> <span class="visible-xs-inline">contact@noripyt.com</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/NoriPytCom" target="_blank" title="{{ _('Tweet us!') }}" data-placement="bottom">
+            <i class="fa fa-fw fa-twitter"></i> <span class="visible-xs-inline">Twitter</span>
+          </a>
+        </li>
+      </ul>
+      <p class="navbar-text navbar-right hidden-xs hidden-sm">{{ _('Contact:') }}</p>
+    </div>
+  </div>
+</nav>

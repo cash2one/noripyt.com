@@ -1,0 +1,6 @@
+[submodule "noripyt/static/bootstrap"]
+	path = noripyt/static/bootstrap
+	url = https://github.com/twbs/bootstrap-sass
+[submodule "noripyt/static/font-awesome"]
+	path = noripyt/static/font-awesome
+	url = https://github.com/FortAwesome/Font-Awesome

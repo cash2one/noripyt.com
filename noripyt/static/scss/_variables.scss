@@ -1,0 +1,35 @@
+//
+// Bootstrap
+//
+
+$font-size-base: 18px;
+$font-family-sans-serif: 'Linux Biolinum', sans-serif;
+$font-family-serif: 'Linux Libertine', serif;
+$headings-font-weight: bold;
+$headings-font-family: $font-family-serif;
+
+$link-color: #e2232d;
+// FIXME: This doesn’t work, for an unknown reason.
+$link-hover-decoration: none;
+
+// We insert the original variables here since SASS
+// unfortunately doesn’t work as well as LESS for overriding variables…
+// Below we define the variables that depend on another Bootstrap variable.
+
+@import '../bootstrap/assets/stylesheets/bootstrap/variables';
+
+$body-bg: $gray-lighter;
+$hr-border: $gray-dark;
+
+//
+// Font awesome
+//
+
+$fa-font-path: '../font-awesome/fonts';
+
+//
+// Other
+//
+
+$hr-thickness: 2px;
+$footer-height: 287px;
