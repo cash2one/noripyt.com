@@ -135,7 +135,12 @@ hr {
   vertical-align: -10%;
 }
 
+.no-transition {
+  transition: none !important;
+}
+
 .card {
+  $font-size-xs: 0.8;
   position: relative;
   margin-top: $grid-gutter-width / 2;
   margin-bottom: $grid-gutter-width / 2;
@@ -167,15 +172,7 @@ hr {
     .content {
       position: relative;
       text-align: center;
-      color: #eee;
-      .collapse-indicator {
-        height: 0;
-        line-height: $grid-gutter-width;
-        transition: color 0.5s ease-out;
-        .fa {
-          transition: transform 0.5s ease-out;
-        }
-      }
+      color: $navbar-inverse-link-hover-color;
       .header {
         padding: $grid-gutter-width;
         :first-child {
@@ -186,6 +183,12 @@ hr {
         }
         @media (max-width: $screen-xs-max) {
           padding: $grid-gutter-width / 2;
+          h3 {
+            font-size: $font-size-h3 * $font-size-xs;
+          }
+          h5 {
+            font-size: $font-size-h5 * $font-size-xs;
+          }
         }
       }
       .description {
@@ -195,15 +198,35 @@ hr {
         cursor: initial;
         @media (max-width: $screen-xs-max) {
           margin: 0 0 $grid-gutter-width / 2 $grid-gutter-width / 2;
+          font-size: $font-size-xs * 1em;
         }
       }
     }
   }
-  &.collapsible:not(.active):hover {
-    .caption {
-      .background {
-        filter: grayscale(80%) blur(1px) brightness(0.5);
+  &.collapsible {
+    .caption .content {
+      .collapse-indicator {
+        height: 0;
+        .fa {
+          line-height: $grid-gutter-width * 3 / 2;
+          transition: transform 0.5s ease-out;
+        }
+        @media (max-width: $screen-xs-max) {
+          .fa {
+            line-height: initial;
+            font-size: $font-size-xs * 1em;
+          }
+        }
       }
+      .header {
+        padding-top: $grid-gutter-width * 3 / 2;
+        @media (max-width: $screen-xs-max) {
+          padding-top: $grid-gutter-width * 3 / 4;
+        }
+      }
+    }
+    &:not(.active):hover .caption .background {
+      filter: grayscale(80%) blur(1px) brightness(0.5);
     }
   }
 }

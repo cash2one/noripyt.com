@@ -89,6 +89,14 @@ function updateCards() {
   $('.card').each(function () { updateCard($(this)); });
 }
 
+function updateCardsWithoutTransition() {
+  var $transitioned = $('.card').find('.caption, .background');
+  $transitioned.addClass('no-transition');
+  updateCards();
+  $transitioned[0].offsetHeight; // Trigger a reflow, flushing the CSS changes.
+  $transitioned.removeClass('no-transition');
+}
+
 $(function () {
   $('.card.collapsible').find('img, .collapse-indicator, .header').click(function (e) {
     e.preventDefault();
@@ -97,8 +105,8 @@ $(function () {
     $card.find('.collapse-indicator .fa').toggleClass('fa-flip-vertical');
     updateCard($card);
   });
-  updateCards();
-  $(window).resize(updateCards);
+  updateCardsWithoutTransition();
+  $(window).resize(updateCardsWithoutTransition);
 });
 
 //
