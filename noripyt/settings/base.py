@@ -164,6 +164,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
+SECRET_KEY = os.environ.get('SECRET_KEY', 'change_me')
+
+
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = 'noripyt'
