@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>
       {% block title %}
-        {{ page.seo_title|default(page.title, true) }}
+        {% if page is defined %}
+          {{ page.seo_title|default(page.title, true) }}
+        {% endif %}
       {% endblock %}
       {% block title_suffix %}| NoriPyt{% endblock %}
     </title>
-    {% if page.search_description %}<meta name="description" content="{{ page.search_description }}" />{% endif %}
+    {% if page is defined and page.search_description %}
+      <meta name="description" content="{{ page.search_description }}" />
+    {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ static('images/favicon.ico') }}">
 
