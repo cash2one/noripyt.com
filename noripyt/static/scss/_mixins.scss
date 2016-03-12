@@ -21,3 +21,11 @@
     }
   }
 }
+
+@mixin hr-line {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border: ($hr-thickness / 2) solid $hr-border;
+}

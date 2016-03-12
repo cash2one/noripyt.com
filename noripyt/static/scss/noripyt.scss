@@ -130,11 +130,7 @@ main {
 hr {
   border-color: transparent !important;
   &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    border: ($hr-thickness / 2) solid $hr-border;
+    @include hr-line;
   }
 }
 
@@ -236,6 +232,24 @@ hr {
     &:not(.active):hover .caption .background {
       filter: grayscale(80%) blur(1px) brightness(0.4);
     }
+  }
+}
+
+#home-logo {
+  margin-top: $navbar-height + $grid-gutter-width;
+  text-align: center;
+  svg {
+    max-width: 452px;
+    max-height: 400px;
+    background: $body-bg;
+  }
+  .hr {
+    position: relative;
+  }
+  .hr:after {
+    top: -32px;
+    z-index: -1;
+    @include hr-line;
   }
 }
 

@@ -4,10 +4,17 @@
 
 {% block body_class %}template-homepage{% endblock %}
 
+{% block pre_content %}
+  <div id="home-logo">
+    {% if translation.get_language() == 'fr' %}
+      {% include 'svg/logo-vertical-fr.svg' %}
+    {% else %}
+      {% include 'svg/logo-vertical-en.svg' %}
+    {% endif %}
+    <div class="hr"></div>
+  </div>
+{% endblock %}
+
 {% block content %}
-  <h1>{{ page.title }}</h1>
-
-  <hr />
-
   {{ page.body }}
 {% endblock %}
