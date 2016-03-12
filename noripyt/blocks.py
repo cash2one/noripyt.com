@@ -5,6 +5,8 @@ from wagtail.wagtailcore.blocks import (
 from wagtail.wagtailcore.rich_text import RichText
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 
+from .constants import WIDTH_RATIOS
+
 
 # FIXME: FixedRichText & FixedRichTextBlock are a workaround to this issue:
 #        https://github.com/torchbox/wagtail/issues/2336
@@ -26,6 +28,9 @@ class ShowcaseBlock(StructBlock):
     image = ImageChooserBlock(label=_('Image'))
     # TODO: Report to wagtail that RichTextBlock has a wrong toolbar position.
     description = FixedRichTextBlock(required=False, label=_('Description'))
+    width_ratio = ChoiceBlock(
+        default='16/9', choices=[(r, r) for r in WIDTH_RATIOS],
+        label=_('Width ratio'))
 
     class Meta:
         label = _('Showcase')
@@ -34,9 +39,11 @@ class ShowcaseBlock(StructBlock):
     def render(self, value):
         return Markup(super(ShowcaseBlock, self).render(value))
 
-    @property
-    def has_description(self):
-        return bool(self.description.value)
+    @staticmethod
+    def get_image_resizing(width_ratio, container_width=1170):
+        num, den = map(int, width_ratio.split('/'))
+        width_ratio = num / den
+        return 'fill-%dx%d' % (container_width, container_width / width_ratio)
 
 
 class ColumnBlock(StructBlock):

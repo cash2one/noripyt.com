@@ -1,3 +1,8 @@
+WIDTH_RATIOS = (
+    '1/2', '2/3', '3/4', '1/1',
+    '4/3', '3/2', '5/3', '16/9', '2/1', '3/1', '4/1',
+)
+
 ICONS = (
     '500px', 'adjust', 'adn', 'align-center', 'align-justify', 'align-left',
     'align-right', 'amazon', 'ambulance', 'anchor', 'android', 'angellist',

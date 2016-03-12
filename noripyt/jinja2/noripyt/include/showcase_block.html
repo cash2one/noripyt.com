@@ -1,7 +1,9 @@
+{% set image_url=image(value.image, value.block.get_image_resizing(value.width_ratio)).url %}
+
 <div class="card{% if value.description %} collapsible{% endif %}">
-  <img src="{{ image(value.image, 'original').url }}" />
+  <img src="{{ image_url }}" />
   <div class="caption">
-    <div class="background" style="background-image: url({{ image(value.image, 'original').url }});"></div>
+    <div class="background" style="background-image: url({{ image_url }});"></div>
     <div class="content">
       {% if value.description %}
         <div class="collapse-indicator">
