@@ -24,37 +24,38 @@
             </a>
           </li>
         {% endfor %}
-      {% for lang_code, lang_verbose in LANGUAGES %}
-        {% if lang_code != translation.get_language() %}
-          {% set page_for_lang=page.get_for_lang(lang_code) %}
-          {% if page_for_lang %}
-            <li>
-              <a href="{{ pageurl(page_for_lang) }}">
-                <i class="fa fa-fw fa-language"></i> {{ lang_verbose }}
-              </a>
-            </li>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <a href="tel:+33652711436" title="{{ _('Call us! In English or French.') }}" data-placement="bottom">
-            <i class="fa fa-fw fa-phone"></i> +33 6 52 71 14 36
+            <i class="fa fa-fw fa-phone"></i>
+            <span class="hidden-sm">+33 6 52 71 14 36</span>
           </a>
         </li>
         <li>
           <a href="mailto:contact@noripyt.com" target="_blank" title="{{ _('Mail us!') }}" data-placement="bottom">
-            <i class="fa fa-fw fa-envelope"></i> <span class="visible-xs-inline">contact@noripyt.com</span>
+            <i class="fa fa-fw fa-envelope"></i>
+            <span class="visible-xs-inline">contact@noripyt.com</span>
           </a>
         </li>
         <li>
           <a href="https://twitter.com/NoriPytCom" target="_blank" title="{{ _('Tweet us!') }}" data-placement="bottom">
-            <i class="fa fa-fw fa-twitter"></i> <span class="visible-xs-inline">Twitter</span>
+            <i class="fa fa-fw fa-twitter"></i>
+            <span class="visible-xs-inline">Twitter</span>
           </a>
         </li>
       </ul>
       <p class="navbar-text navbar-right hidden-xs hidden-sm">{{ _('Contact:') }}</p>
+      {% for lang_code, lang_verbose in LANGUAGES %}
+        {% if lang_code != translation.get_language() %}
+          {% set page_for_lang=page.get_for_lang(lang_code) %}
+          {% if page_for_lang %}
+            <a href="{{ pageurl(page_for_lang) }}" class="btn btn-default btn-xs navbar-btn navbar-right">
+              {{ lang_verbose }}
+            </a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 </nav>

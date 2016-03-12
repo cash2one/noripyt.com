@@ -15,6 +15,9 @@
   color: $navbar-inverse-color;
   background-color: $navbar-inverse-bg;
   a {
-    color: $navbar-inverse-link-color;
+    color: $inverse-link-color;
+    &:hover {
+      color: $inverse-link-hover-color;
+    }
   }
 }

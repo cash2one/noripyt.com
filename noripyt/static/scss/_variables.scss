@@ -8,9 +8,9 @@ $font-family-serif: 'Linux Libertine', serif;
 $headings-font-weight: bold;
 $headings-font-family: $font-family-serif;
 
-$link-color: #e2232d;
-// FIXME: This doesn’t work, for an unknown reason.
-$link-hover-decoration: none;
+$navbar-inverse-bg: #1a1a1a;
+$link-color: #db1e26;
+$link-hover-color: $link-color;
 
 // We insert the original variables here since SASS
 // unfortunately doesn’t work as well as LESS for overriding variables…
@@ -30,6 +30,9 @@ $fa-font-path: '../font-awesome/fonts';
 //
 // Other
 //
+
+$inverse-link-color: $link-color;
+$inverse-link-hover-color: $inverse-link-color;
 
 $hr-thickness: 2px;
 $footer-height: 287px;
