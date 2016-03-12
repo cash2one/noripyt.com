@@ -35,7 +35,7 @@
 
     {% include 'footer.html' %}
 
-    <script src="//maps.googleapis.com/maps/api/js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?language={{ translation.get_language() }}"></script>
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     {% compress js %}
       {# WARNING: Bootstrap JS order is important! #}
