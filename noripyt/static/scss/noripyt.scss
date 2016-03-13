@@ -307,20 +307,20 @@ hr {
       .well {
         display: table;
         width: 100%;
-        h2 {
-          margin-top: 0;
+        h3 {
+          margin-top: 10px;
         }
         .buttons {
           display: table-row;
         }
         @media (min-width: $screen-sm-min) {
-          min-height: 208px;
+          min-height: 211px;
         }
         @media (min-width: $screen-md-min) {
-          min-height: 227px;
+          min-height: 230px;
         }
         @media (min-width: $screen-lg-min) {
-          min-height: 208px;
+          min-height: 211px;
         }
       }
     }
