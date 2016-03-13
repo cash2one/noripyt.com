@@ -5,12 +5,13 @@
 $font-size-base: 18px;
 $font-family-sans-serif: 'Linux Biolinum', sans-serif;
 $font-family-serif: 'Linux Libertine', serif;
-$headings-font-weight: bold;
+$headings-font-weight: normal;
 $headings-font-family: $font-family-serif;
 
 $navbar-inverse-bg: #1a1a1a;
 $link-color: #db1e26;
 $link-hover-color: $link-color;
+$brand-primary: desaturate($link-color, 10%);
 
 // We insert the original variables here since SASS
 // unfortunately doesn’t work as well as LESS for overriding variables…
@@ -33,6 +34,9 @@ $fa-font-path: '../font-awesome/fonts';
 
 $inverse-link-color: $link-color;
 $inverse-link-hover-color: $inverse-link-color;
-
+$well-padding: 19px;
+$well-primary-bg: $brand-primary;
+$well-primary-border: darken($well-primary-bg, 7%);
+$well-primary-color: white;
 $hr-thickness: 2px;
-$footer-height: 287px;
+$footer-height: 317px;

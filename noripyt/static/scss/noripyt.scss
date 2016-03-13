@@ -55,7 +55,7 @@ body {
         address {
           color: white;
           h3 {
-            margin-top: 0;
+            margin-top: 5px;
             small {
               color: white;
             }
@@ -136,6 +136,31 @@ hr {
 
 .fa {
   vertical-align: -10%;
+}
+
+.well {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: $well-padding;
+  &.well-primary {
+    background: $well-primary-bg;
+    border-color: $well-primary-border;
+    color: $well-primary-color;
+    a:not(.btn) {
+      color: $well-primary-color;
+      border-bottom: 1px solid $well-primary-color;
+      border-radius: $border-radius-small $border-radius-small 0 0;
+      transition-property: color, background, border-radius;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+      &:hover {
+        color: $well-primary-bg;
+        background: $well-primary-color;
+        border-radius: $border-radius-small;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 .no-transition {
@@ -235,21 +260,70 @@ hr {
   }
 }
 
-#home-logo {
-  margin-top: $navbar-height + $grid-gutter-width;
-  text-align: center;
-  svg {
-    max-width: 452px;
-    max-height: 400px;
-    background: $body-bg;
+.template-homepage {
+  #home-logo {
+    margin-top: $navbar-height + $grid-gutter-width;
+    text-align: center;
+    svg {
+      max-width: 452px;
+      max-height: 400px;
+      background: $body-bg;
+    }
+    .hr {
+      position: relative;
+    }
+    .hr:after {
+      top: -32px;
+      z-index: -1;
+      @include hr-line;
+    }
   }
-  .hr {
-    position: relative;
-  }
-  .hr:after {
-    top: -32px;
-    z-index: -1;
-    @include hr-line;
+  main {
+    margin-top: 0;
+    text-align: center;
+    #intro {
+      margin: $grid-gutter-width 0;
+      h4 {
+        font-weight: normal;
+      }
+    }
+    #technologies {
+      ul {
+        display: inline-block;
+        max-width: 600px;
+        list-style: none;
+        li {
+          position: relative;
+          text-align: left;
+          &:before {
+            position: absolute;
+            top: 6px;
+            left: -25px;
+            @include fa-icon;
+            content: $fa-var-hand-o-right;
+          }
+        }
+      }
+      .well {
+        display: table;
+        width: 100%;
+        h2 {
+          margin-top: 0;
+        }
+        .buttons {
+          display: table-row;
+        }
+        @media (min-width: $screen-sm-min) {
+          min-height: 208px;
+        }
+        @media (min-width: $screen-md-min) {
+          min-height: 227px;
+        }
+        @media (min-width: $screen-lg-min) {
+          min-height: 208px;
+        }
+      }
+    }
   }
 }
 

@@ -16,5 +16,159 @@
 {% endblock %}
 
 {% block content %}
-  {{ page.body }}
+  <div id="intro">
+    {# FIXME: Make this dynamic #}
+    <h4><em>Être « mini » est un avantage :</em></h4>
+    <h4>
+      c’est avoir <a href="{# FIXME: Fill me #}">un interlocuteur unique</a>
+      & <strong>privilégier l’efficacité</strong> à la lourdeur administrative,
+    </h4>
+    <h4>
+      sans perdre en qualité.
+    </h4>
+  </div>
+  <hr />
+  <div id="offer">
+    {# FIXME: Make this dynamic #}
+    <h2>Nous réalisons</h2>
+    <h4>—</h4>
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-2 col-sm-6">
+        <div class="well well-primary">
+          <h3>Site classique</h3>
+          <h5>(<a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_de_contenu" target="_blank">CMS</a>, blog)</h5>
+          —
+          <ul class="list-unstyled">
+            <li>Design responsif sur mesure</li>
+            <li>Grande simplicité d’utilisation</li>
+            <li>Extensible</li>
+            <li>—</li>
+            <li>Suivi sur le long terme</li>
+          </ul>
+          <a href="{# FIXME: Fill me. #}" class="btn btn-default">Exemples</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <div class="well well-primary">
+          <h3>Projet web spécifique</h3>
+          <h5>Petit comme vaste</h5>
+          —
+          <ul class="list-unstyled">
+            <li>
+              <a href="https://fr.wikipedia.org/wiki/Base_de_donn%C3%A9es_relationnelle" target="_blank">Base de données relationnelle</a>
+            </li>
+            <li>Moteur de recherche</li>
+            <li>
+              Interopérable
+              (<a href="https://fr.wikipedia.org/wiki/Interface_de_programmation" target="_blank">API</a>,
+              <a href="https://fr.wikipedia.org/wiki/Robot_d%27indexation" target="_blank">crawler</a>, etc.)
+            </li>
+            <li>—</li>
+            <li>Suivi sur le long terme</li>
+          </ul>
+          <a href="{# FIXME: Fill me. #}" class="btn btn-default">Exemples</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3">
+        <div class="well well-primary">
+          <h3>Conseil</h3>
+          <ul class="list-unstyled">
+            <li>Accompagnement à la création de projet</li>
+            <li>—</li>
+            <li>Gestion des données</li>
+            <li>Stratégie à long terme</li>
+            <li>—</li>
+            <li>
+              <a href="https://www.python.org/" target="_blank">Python</a>,
+              <a href="https://www.djangoproject.com/" target="_blank">Django</a>,
+              <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>
+            </li>
+            <li>Performance technique</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div id="technologies">
+    <h2>Nos technologies</h2>
+    <h4>—</h4>
+    <h4>
+      Nous utilisons exclusivement des outils <strong><em>open source</em></strong> et
+      participons activement à cette communauté.
+    </h4>
+    <h4>
+      Contrairement à ce que l’on pourrait penser, ces technologies
+      sont simplement les plus <strong>exemplaires et pérennes</strong> :
+    </h4>
+    <ul>
+      <li>
+        <strong>exemplaires</strong> car travailler publiquement incite
+        à une grande rigueur,
+        tant pour la réputation que pour le goût du travail bien fait ;
+      </li>
+      <li>
+        <strong>pérennes</strong> car des centaines d’entreprises s’en servent
+        quotidiennement et chacun peut à tout moment décider de <a href="https://fr.wikipedia.org/wiki/Fork_(d%C3%A9veloppement_logiciel)">faire bifurquer</a> l’outil
+        dans la direction souhaitée.
+      </li>
+    </ul>
+
+    <h3>Outils principaux</h3>
+    —
+
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="well">
+          <h2>Wagtail</h2>
+          <h5>Création de sites classiques simple d’utilisation et extensibles</h5>
+          <div class="buttons">
+            <a class="btn btn-primary btn-block" href="https://wagtail.io/" target="_blank">
+              Admirer [anglais]
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="well">
+          <h2>Django</h2>
+          <h5>Boîte à outils web</h5>
+          <div class="buttons">
+            <a class="btn btn-primary btn-block" href="https://docs.djangoproject.com/fr/1.9/intro/" target="_blank">
+              Apprendre
+            </a>
+            <a class="btn btn-primary btn-block" href="https://www.djangoproject.com/" target="_blank">
+              Site officiel
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="well">
+          <h2>Python</h2>
+          <h5>Langage de programmation</h5>
+          <div class="buttons">
+            <a class="btn btn-primary btn-block" href="https://www.codeschool.com/learn/python" target="_blank">
+              Apprendre [anglais]
+            </a>
+            <a class="btn btn-primary btn-block" href="https://www.python.org/" target="_blank">
+              Site officiel
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="well">
+          <h2>PostgreSQL</h2>
+          <h5>Base de données et moteur de recherche</h5>
+          <div class="buttons">
+            <a class="btn btn-primary btn-block" href="http://www.postgresql.org/" target="_blank">
+              Site officiel
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{#  {{ page.body }}#}
 {% endblock %}
