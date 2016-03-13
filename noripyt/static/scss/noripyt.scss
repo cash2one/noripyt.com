@@ -314,13 +314,13 @@ hr {
           display: table-row;
         }
         @media (min-width: $screen-sm-min) {
-          min-height: 211px;
+          height: 211px;
         }
         @media (min-width: $screen-md-min) {
-          min-height: 230px;
+          height: 230px;
         }
         @media (min-width: $screen-lg-min) {
-          min-height: 211px;
+          height: 211px;
         }
       }
     }
