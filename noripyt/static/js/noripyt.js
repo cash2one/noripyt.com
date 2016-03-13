@@ -91,6 +91,9 @@ function updateCards() {
 
 function updateCardsWithoutTransition() {
   var $transitioned = $('.card').find('.caption, .background');
+  if ($transitioned.length == 0) {
+    return;
+  }
   $transitioned.addClass('no-transition');
   updateCards();
   $transitioned[0].offsetHeight; // Trigger a reflow, flushing the CSS changes.
