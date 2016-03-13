@@ -65,7 +65,9 @@ function updateCard($card) {
   var height = $card.height();
   var $caption = $card.find('.caption');
   var $background = $caption.find('.background');
-  var headerHeight = $caption.find('.header').outerHeight(true);
+  // FIXME: We have to do this because stupid jQuery
+  //        can’t return floats when using `.height()`… -_-
+  var headerHeight = $caption.find('.header')[0].getBoundingClientRect().height;
   var $description = $caption.find('.description');
   $description.height('auto');
   var descriptionVerticalMargin = ($description.outerHeight(true)
@@ -75,14 +77,12 @@ function updateCard($card) {
     descriptionHeight = $description.height();
   }
   $description.height(descriptionHeight);
+  var top = height - headerHeight;
   if ($card.hasClass('active')) {
-    var top = height - headerHeight - descriptionHeight - descriptionVerticalMargin;
-    $caption.css('top', top);
-    $background.css('background-position-y', -top);
-  } else {
-    $caption.css('top', (height - headerHeight));
-    $background.css('background-position-y', -(height - headerHeight));
+    top -= descriptionHeight + descriptionVerticalMargin;
   }
+  $caption.css('top', top);
+  $background.css('background-position-y', -top);
 }
 
 function updateCards() {
