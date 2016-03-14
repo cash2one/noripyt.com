@@ -9,7 +9,7 @@ from wagtail.wagtailcore.blocks import RichTextBlock
 from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore.models import Page
 
-from .blocks import ShowcaseBlock, row_block
+from .blocks import ShowcaseBlock, row_block, AnchoredRichTextBlock
 from .constants import ICONS
 
 
@@ -76,6 +76,7 @@ class HomePage(TranslatablePageMixin, Page):
 class Article(TranslatablePageMixin, Page):
     body = StreamField([
         ('text', RichTextBlock(label=_('Text'))),
+        ('anchored_text', AnchoredRichTextBlock()),
         ('showcase', ShowcaseBlock()),
         ('row', row_block),
     ], verbose_name=_('body'))

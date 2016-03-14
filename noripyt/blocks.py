@@ -21,6 +21,18 @@ class FixedRichTextBlock(RichTextBlock):
         return FixedRichText(value)
 
 
+class AnchoredRichTextBlock(StructBlock):
+    id = CharBlock(label=_('ID'))
+    body = FixedRichTextBlock(label=_('Body'))
+
+    class Meta:
+        label = _('Anchored text')
+        template = 'noripyt/include/anchored_richtext_block.html'
+
+    def render(self, value):
+        return Markup(super(AnchoredRichTextBlock, self).render(value))
+
+
 class ShowcaseBlock(StructBlock):
     # TODO: Report to wagtail that labels should be `capfirst`ed when rendered.
     title = CharBlock(label=_('Title'))

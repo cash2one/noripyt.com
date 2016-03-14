@@ -87,7 +87,7 @@ body {
 main {
   margin-top: $navbar-height;
   padding-bottom: $grid-gutter-width;
-  h1 {
+  h1, h2, h3, h4, h5, h6 {
     text-align: center;
   }
   p {
@@ -257,6 +257,14 @@ hr {
     &:not(.active):hover .caption .background {
       filter: grayscale(80%) blur(1px) brightness(0.4);
     }
+  }
+}
+
+.anchor {
+  position: relative;
+  .anchor-inner {
+    position: absolute;
+    top: -$navbar-height;
   }
 }
 
