@@ -100,7 +100,7 @@ function updateCardsWithoutTransition() {
   $transitioned.removeClass('no-transition');
 }
 
-$(function () {
+$(window).load(function () {
   $('.card.collapsible').find('img, .collapse-indicator, .header').click(function (e) {
     e.preventDefault();
     var $card = $(this).parents('.card');
