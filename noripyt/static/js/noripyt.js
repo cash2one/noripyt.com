@@ -82,7 +82,7 @@ function updateCard($card) {
     top -= descriptionHeight + descriptionVerticalMargin;
   }
   $caption.css('top', top);
-  $background.css('background-position-y', -top);
+  $background.css('background-position', '50% ' + (-top + 'px'));
 }
 
 function updateCards() {
