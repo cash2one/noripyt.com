@@ -84,12 +84,13 @@ function updateCard($card) {
   if ($card.hasClass('active')) {
     top -= descriptionHeight + descriptionVerticalMargin;
     $description.css('visibility', 'visible');
-  } else {
-    $caption.one('transitionend webkitTransitionEnd oTransitionEnd', function () {
-      $description.css('visibility', '');
-    });
   }
   $caption.css('top', top);
+  $caption.one('transitionend webkitTransitionEnd oTransitionEnd', function () {
+    if (!$card.hasClass('active')) {
+      $description.css('visibility', '');
+    }
+  });
 }
 
 function updateCards($cards) {
