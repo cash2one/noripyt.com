@@ -1,26 +1,21 @@
-{% set image_url=image(value.image, value.block.get_image_resizing(value.width_ratio)).url %}
-
 <div class="card{% if value.description %} collapsible{% endif %}">
-  <img src="{{ image_url }}" />
+  <img src="{{ image(value.image, value.block.get_image_resizing(value.width_ratio)).url }}" />
   <div class="caption">
-    <div class="background" style="background-image: url({{ image_url }});"></div>
-    <div class="content">
-      {% if value.description %}
-        <div class="collapse-indicator">
-          <i class="fa fa-chevron-up"></i>
-        </div>
-      {% endif %}
-      <div class="header">
-        <h3>{{ value.title }}</h3>
-        {% if value.subtitle %}
-          <h5>{{ value.subtitle }}</h5>
-        {% endif %}
+    {% if value.description %}
+      <div class="collapse-indicator">
+        <i class="fa fa-chevron-up"></i>
       </div>
-      {% if value.description %}
-        <div class="description">
-          {{ value.description|richtext }}
-        </div>
+    {% endif %}
+    <div class="header">
+      <h3>{{ value.title }}</h3>
+      {% if value.subtitle %}
+        <h5>{{ value.subtitle }}</h5>
       {% endif %}
     </div>
+    {% if value.description %}
+      <div class="description">
+        {{ value.description|richtext }}
+      </div>
+    {% endif %}
   </div>
 </div>

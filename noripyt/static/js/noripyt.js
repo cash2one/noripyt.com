@@ -61,13 +61,16 @@ new google.maps.Marker({
 // Cards
 //
 
+// FIXME: We have to do this because stupid jQuery
+//        can’t return floats when using `.height()`… -_-
+function getHeight($element) {
+  return $element[0].getBoundingClientRect().height;
+}
+
 function updateCard($card) {
-  var height = $card.height();
+  var height = getHeight($card);
   var $caption = $card.find('.caption');
-  var $background = $caption.find('.background');
-  // FIXME: We have to do this because stupid jQuery
-  //        can’t return floats when using `.height()`… -_-
-  var headerHeight = $caption.find('.header')[0].getBoundingClientRect().height;
+  var headerHeight = getHeight($caption.find('.header'));
   var $description = $caption.find('.description');
   $description.height('auto');
   var descriptionVerticalMargin = ($description.outerHeight(true)
@@ -80,9 +83,13 @@ function updateCard($card) {
   var top = height - headerHeight;
   if ($card.hasClass('active')) {
     top -= descriptionHeight + descriptionVerticalMargin;
+    $description.css('visibility', 'visible');
+  } else {
+    $caption.one('transitionend webkitTransitionEnd oTransitionEnd', function () {
+      $description.css('visibility', '');
+    });
   }
   $caption.css('top', top);
-  $background.css('background-position', '50% ' + (-top + 'px'));
 }
 
 function updateCards($cards) {
@@ -90,7 +97,7 @@ function updateCards($cards) {
 }
 
 function updateCardsWithoutTransition($cards) {
-  var $transitioned = $cards.find('.caption, .background');
+  var $transitioned = $cards.find('.caption');
   if ($transitioned.length == 0) {
     return;
   }
