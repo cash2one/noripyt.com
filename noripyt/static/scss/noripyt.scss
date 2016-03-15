@@ -187,6 +187,7 @@ hr {
     max-height: 100%;
     overflow: hidden;
     transition: top 0.5s ease-out;
+    transform: translateZ(0);
     .background {
       position: absolute;
       background-size: cover;
