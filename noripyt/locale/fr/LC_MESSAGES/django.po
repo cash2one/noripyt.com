@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-13 17:25+0100\n"
+"POT-Creation-Date: 2016-03-15 15:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,43 +18,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: blocks.py:26
-msgid "Title"
-msgstr "Titre"
+#: blocks.py:25
+msgid "ID"
+msgstr ""
 
-#: blocks.py:27
-msgid "Subtitle"
-msgstr "Sous-titre"
-
-#: blocks.py:28
-msgid "Image"
-msgstr "Image"
-
-#: blocks.py:30
-msgid "Description"
-msgstr "Description"
-
-#: blocks.py:33
-msgid "Width ratio"
-msgstr "Largeur / hauteur"
-
-#: blocks.py:36
-msgid "Showcase"
-msgstr "Étalage"
-
-#: blocks.py:52
-msgid "Width"
-msgstr "Largeur"
-
-#: blocks.py:56
+#: blocks.py:26 blocks.py:68
 msgid "Body"
 msgstr "Corps"
 
-#: blocks.py:59
+#: blocks.py:29
+msgid "Anchored text"
+msgstr ""
+
+#: blocks.py:38
+msgid "Title"
+msgstr "Titre"
+
+#: blocks.py:39
+msgid "Subtitle"
+msgstr "Sous-titre"
+
+#: blocks.py:40
+msgid "Image"
+msgstr "Image"
+
+#: blocks.py:42
+msgid "Description"
+msgstr "Description"
+
+#: blocks.py:45
+msgid "Width ratio"
+msgstr "Largeur / hauteur"
+
+#: blocks.py:48
+msgid "Showcase"
+msgstr "Étalage"
+
+#: blocks.py:64
+msgid "Width"
+msgstr "Largeur"
+
+#: blocks.py:71
 msgid "Column"
 msgstr "Colonne"
 
-#: blocks.py:68
+#: blocks.py:80
 msgid "Row"
 msgstr "Rangée"
 
@@ -62,39 +70,39 @@ msgstr "Rangée"
 msgid "404 error"
 msgstr "Erreur 404"
 
-#: jinja2/404.html:8
+#: jinja2/404.html:10
 msgid "Nothing found at this address."
 msgstr "Rien n’a été trouvé à cette adresse."
 
 #: jinja2/footer.html:5
-msgid "From 9:00 to 17:00 GMT"
-msgstr "De 10 à 18h (GMT+1)"
+msgid "Monday to Friday, from 9:00 to 17:00 GMT"
+msgstr "Du lundi au vendredi, de 10h à 18h (GMT+1)"
 
 #: jinja2/footer.html:8
 msgid "at"
 msgstr "à"
 
-#: jinja2/navbar.html:7
+#: jinja2/navbar.html:5
 msgid "Toggle navigation"
 msgstr "Afficher/masquer la navigation"
 
-#: jinja2/navbar.html:12
+#: jinja2/navbar.html:10
 msgid "Back to the home page"
 msgstr "Retour à l’accueil"
 
-#: jinja2/navbar.html:30
+#: jinja2/navbar.html:28
 msgid "Call us! In English or French."
 msgstr "Appelez-nous ! En français ou anglais."
 
-#: jinja2/navbar.html:36
+#: jinja2/navbar.html:34
 msgid "Mail us!"
 msgstr "Envoyez-nous un mail !"
 
-#: jinja2/navbar.html:42
+#: jinja2/navbar.html:40
 msgid "Tweet us!"
 msgstr "Envoyez-nous un tweet !"
 
-#: jinja2/navbar.html:48
+#: jinja2/navbar.html:46
 msgid "Contact:"
 msgstr "Contact :"
 
@@ -106,14 +114,14 @@ msgstr "page française"
 msgid "Text"
 msgstr "Texte"
 
-#: models.py:69 models.py:81
+#: models.py:69 models.py:82
 msgid "body"
 msgstr "corps"
 
-#: models.py:89
+#: models.py:90
 msgid "redirect URL"
 msgstr "URL de redirection"
 
-#: models.py:90
+#: models.py:91
 msgid "icon"
 msgstr "icône"
