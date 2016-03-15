@@ -85,22 +85,22 @@ function updateCard($card) {
   $background.css('background-position', '50% ' + (-top + 'px'));
 }
 
-function updateCards() {
-  $('.card').each(function () { updateCard($(this)); });
+function updateCards($cards) {
+  $cards.each(function () { updateCard($(this)); });
 }
 
-function updateCardsWithoutTransition() {
-  var $transitioned = $('.card').find('.caption, .background');
+function updateCardsWithoutTransition($cards) {
+  var $transitioned = $cards.find('.caption, .background');
   if ($transitioned.length == 0) {
     return;
   }
   $transitioned.addClass('no-transition');
-  updateCards();
+  updateCards($cards);
   $transitioned[0].offsetHeight; // Trigger a reflow, flushing the CSS changes.
   $transitioned.removeClass('no-transition');
 }
 
-$(window).load(function () {
+$(function () {
   $('.card.collapsible').find('img, .collapse-indicator, .header').click(function (e) {
     e.preventDefault();
     var $card = $(this).parents('.card');
@@ -108,8 +108,18 @@ $(window).load(function () {
     $card.find('.collapse-indicator .fa').toggleClass('fa-flip-vertical');
     updateCard($card);
   });
-  updateCardsWithoutTransition();
-  $(window).resize(updateCardsWithoutTransition);
+  var $cards = $('.card');
+  $cards.find('img').each(function () {
+    var $card = $(this).parents('.card');
+    if (this.complete) {
+      updateCardsWithoutTransition($card);
+    } else {
+      $(this).load(function () {
+        updateCardsWithoutTransition($card);
+      });
+    }
+  });
+  $(window).resize(function () { updateCardsWithoutTransition($cards) });
 });
 
 //
