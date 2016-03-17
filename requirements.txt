@@ -1,5 +1,5 @@
 Django==1.9.4
-wagtail==1.4rc1
+wagtail==1.4.1
 psycopg2==2.6.1
 Jinja2==2.8
 django-compressor==2.0
@@ -13,10 +13,10 @@ django-appconf==1.0.1
 django-modelcluster==1.1
 django-taggit==0.18.0
 django-treebeard==4.0
-djangorestframework==3.3.2
+djangorestframework==3.3.3
 html5lib==0.9999999
 Pillow==3.1.1
-pytz==2015.7
+pytz==2016.1
 rcssmin==1.0.6
 rjsmin==1.0.12
 six==1.10.0
