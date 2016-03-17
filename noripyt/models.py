@@ -14,6 +14,10 @@ from .constants import ICONS
 
 
 class LanguageRedirectionPage(Page):
+    subpage_types = [
+        'noripyt.HomePage',
+    ]
+
     def serve(self, request, *args, **kwargs):
         language = get_language_from_request(request)
         return redirect(self.url + language + '/')
@@ -71,6 +75,9 @@ class HomePage(TranslatablePageMixin, Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
     ]
+    subpage_types = [
+        'noripyt.Article', 'noripyt.RedirectPage',
+    ]
 
 
 class Article(TranslatablePageMixin, Page):
@@ -84,6 +91,9 @@ class Article(TranslatablePageMixin, Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
     ]
+    subpage_types = [
+        'noripyt.Article', 'noripyt.RedirectPage',
+    ]
 
 
 class RedirectPage(Page):
@@ -95,6 +105,7 @@ class RedirectPage(Page):
         FieldPanel('redirect_url'),
         FieldPanel('icon'),
     ]
+    subpage_types = []
 
     def serve(self, request, *args, **kwargs):
         return redirect(self.redirect_url)
