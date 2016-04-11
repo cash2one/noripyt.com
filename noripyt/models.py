@@ -15,7 +15,7 @@ from .constants import ICONS
 
 class LanguageRedirectionPage(Page):
     subpage_types = [
-        'noripyt.HomePage',
+        'noripyt.Home',
     ]
 
     def serve(self, request, *args, **kwargs):
@@ -65,7 +65,7 @@ class TranslatablePageMixin(Model):
         return super(TranslatablePageMixin, self).serve(request)
 
 
-class HomePage(TranslatablePageMixin, Page):
+class Home(TranslatablePageMixin, Page):
     body = StreamField([
         ('text', RichTextBlock(label=_('Text'))),
         ('anchor', AnchorBlock()),
