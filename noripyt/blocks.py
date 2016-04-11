@@ -92,7 +92,7 @@ class ShowcaseBlock(FixedJinja2Mixin, StructBlock):
     image = ImageChooserBlock(label=_('Image'))
     description = FixedRichTextBlock(required=False, label=_('Description'))
     width_ratio = ChoiceBlock(
-        default='16/9', choices=[(r, r) for r in WIDTH_RATIOS],
+        default='4/3', choices=[(r, r) for r in WIDTH_RATIOS],
         label=_('Width ratio'))
 
     class Meta:
