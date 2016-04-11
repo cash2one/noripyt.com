@@ -66,7 +66,7 @@ class ButtonBlock(FixedJinja2Mixin, StructBlock):
                 raise ValidationError(msg, params={'page': [msg],
                                                    'url': [msg]})
         elif bool(value['url']) ^ bool(value['text']):
-            msg = _('“URL” and “text” must be filled together.')
+            msg = _('“URL” and “Text” must be filled together.')
             raise ValidationError(msg, params={'url': [msg], 'text': [msg]})
         return out
 

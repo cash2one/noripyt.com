@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-15 15:37+0100\n"
+"POT-Creation-Date: 2016-04-11 20:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,51 +18,151 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: blocks.py:25
-msgid "ID"
-msgstr ""
+#: blocks.py:39 blocks.py:53
+msgid "Anchor"
+msgstr "Ancre"
 
-#: blocks.py:26 blocks.py:68
-msgid "Body"
-msgstr "Corps"
+#: blocks.py:45 blocks.py:76
+msgid "Default"
+msgstr "Défaut"
 
-#: blocks.py:29
-msgid "Anchored text"
-msgstr ""
+#: blocks.py:46 blocks.py:77
+msgid "Primary"
+msgstr "Primaire"
 
-#: blocks.py:38
+#: blocks.py:48 blocks.py:79
+msgid "Type"
+msgstr "Type"
+
+#: blocks.py:49
+msgid "Page"
+msgstr "Page"
+
+#: blocks.py:50 models.py:70 models.py:87
+msgid "Text"
+msgstr "Texte"
+
+#: blocks.py:51
+msgid "URL"
+msgstr "URL"
+
+#: blocks.py:54
+msgid "Anchor of the element in the linked page."
+msgstr "Ancre de l’élément dans la page liée."
+
+#: blocks.py:55
+msgid "Full width"
+msgstr "Pleine largeur"
+
+#: blocks.py:58
+msgid "Button"
+msgstr "Bouton"
+
+#: blocks.py:65
+msgid "Cannot fill both “Page” and “URL”."
+msgstr "Impossible de remplir à la fois « Page » et « URL »."
+
+#: blocks.py:69
+msgid "“URL” and “Text” must be filled together."
+msgstr "« URL » et « Text » doivent être tous deux remplis."
+
+#: blocks.py:80 blocks.py:90
 msgid "Title"
 msgstr "Titre"
 
-#: blocks.py:39
+#: blocks.py:81 blocks.py:137
+msgid "Body"
+msgstr "Corps"
+
+#: blocks.py:82
+msgid "Buttons"
+msgstr "Boutons"
+
+#: blocks.py:85
+msgid "Card"
+msgstr "Carte"
+
+#: blocks.py:91
 msgid "Subtitle"
 msgstr "Sous-titre"
 
-#: blocks.py:40
+#: blocks.py:92
 msgid "Image"
 msgstr "Image"
 
-#: blocks.py:42
+#: blocks.py:93
 msgid "Description"
 msgstr "Description"
 
-#: blocks.py:45
+#: blocks.py:96
 msgid "Width ratio"
 msgstr "Largeur / hauteur"
 
-#: blocks.py:48
+#: blocks.py:99
 msgid "Showcase"
 msgstr "Étalage"
 
-#: blocks.py:64
-msgid "Width"
-msgstr "Largeur"
+#: blocks.py:114
+msgid "Width [extra-small]"
+msgstr "Largeur [très petit]"
 
-#: blocks.py:71
+#: blocks.py:116
+msgid "Width [small]"
+msgstr "Largeur [petit]"
+
+#: blocks.py:118
+msgid "Width [medium]"
+msgstr "Largeur [moyen]"
+
+#: blocks.py:120
+msgid "Width [large]"
+msgstr "Largeur [grand]"
+
+#: blocks.py:122
+msgid "Offset [extra-small]"
+msgstr "Décalage [très petit]"
+
+#: blocks.py:125
+msgid "Offset [small]"
+msgstr "Décalage [petit]"
+
+#: blocks.py:128
+msgid "Offset [medium]"
+msgstr "Décalage [moyen]"
+
+#: blocks.py:131
+msgid "Offset [large]"
+msgstr "Décalage [grand]"
+
+#: blocks.py:140
 msgid "Column"
 msgstr "Colonne"
 
-#: blocks.py:80
+#: blocks.py:149
+msgid "“{}” + “{}” cannot exceed 100%."
+msgstr "« {} » + « {} » ne peut dépasser 100 %."
+
+#: blocks.py:159
+msgid "Height [extra-small]"
+msgstr "Hauteur [très petit]"
+
+#: blocks.py:160
+msgid "Height [small]"
+msgstr "Hauteur [petit]"
+
+#: blocks.py:161
+msgid "Height [medium]"
+msgstr "Hauteur [moyen]"
+
+#: blocks.py:162
+msgid "Height [large]"
+msgstr "Hauteur [grand]"
+
+#: blocks.py:163
+msgid "Columns"
+msgstr "Colonnes"
+
+#: blocks.py:166
 msgid "Row"
 msgstr "Rangée"
 
@@ -106,22 +206,18 @@ msgstr "Envoyez-nous un tweet !"
 msgid "Contact:"
 msgstr "Contact :"
 
-#: models.py:27
+#: models.py:31
 msgid "french page"
 msgstr "page française"
 
-#: models.py:66 models.py:78
-msgid "Text"
-msgstr "Texte"
-
-#: models.py:69 models.py:82
+#: models.py:75 models.py:92
 msgid "body"
 msgstr "corps"
 
-#: models.py:90
+#: models.py:103
 msgid "redirect URL"
 msgstr "URL de redirection"
 
-#: models.py:91
+#: models.py:104
 msgid "icon"
 msgstr "icône"
