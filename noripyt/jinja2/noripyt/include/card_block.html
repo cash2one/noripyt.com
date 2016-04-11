@@ -1,0 +1,11 @@
+<div class="well well-{{ value.type }}">
+  <h3>{{ value.title }}</h3>
+  {{ value.body|richtext }}
+  {% if value.buttons %}
+    <div class="buttons">
+      {% for button in value.buttons %}
+        {{ button }}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

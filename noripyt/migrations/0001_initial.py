@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.db.models.deletion
-import noripyt.blocks
 import wagtail.wagtailcore.blocks
 import wagtail.wagtailcore.fields
 import wagtail.wagtailimages.blocks
@@ -23,7 +22,7 @@ class Migration(migrations.Migration):
             name='Article',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
-                ('body', wagtail.wagtailcore.fields.StreamField((('text', wagtail.wagtailcore.blocks.RichTextBlock(label='Text')), ('showcase', wagtail.wagtailcore.blocks.StructBlock((('title', wagtail.wagtailcore.blocks.CharBlock(label='Title')), ('subtitle', wagtail.wagtailcore.blocks.CharBlock(label='Subtitle')), ('image', wagtail.wagtailimages.blocks.ImageChooserBlock(label='Image')), ('description', wagtail.wagtailcore.blocks.RichTextBlock(label='Description', required=False))))), ('row', noripyt.blocks.RowBlock(wagtail.wagtailcore.blocks.StructBlock((('width', wagtail.wagtailcore.blocks.ChoiceBlock(choices=[(1, '8\u202f%'), (2, '16\u202f%'), (3, '25\u202f%'), (4, '33\u202f%'), (5, '41\u202f%'), (6, '50\u202f%'), (7, '58\u202f%'), (8, '66\u202f%'), (9, '75\u202f%'), (10, '83\u202f%'), (11, '91\u202f%'), (12, '100\u202f%')], default=6, label='Width')), ('body', wagtail.wagtailcore.blocks.StreamBlock((('showcase', wagtail.wagtailcore.blocks.StructBlock((('title', wagtail.wagtailcore.blocks.CharBlock(label='Title')), ('subtitle', wagtail.wagtailcore.blocks.CharBlock(label='Subtitle')), ('image', wagtail.wagtailimages.blocks.ImageChooserBlock(label='Image')), ('description', wagtail.wagtailcore.blocks.RichTextBlock(label='Description', required=False))))), ('text', wagtail.wagtailcore.blocks.RichTextBlock())), label='Body', required=True))))))), verbose_name='body')),
+                ('body', wagtail.wagtailcore.fields.StreamField((), verbose_name='body')),
             ],
             options={
                 'abstract': False,
@@ -34,7 +33,7 @@ class Migration(migrations.Migration):
             name='HomePage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
-                ('body', wagtail.wagtailcore.fields.StreamField((('text', wagtail.wagtailcore.blocks.RichTextBlock(label='Text')), ('showcase', wagtail.wagtailcore.blocks.StructBlock((('title', wagtail.wagtailcore.blocks.CharBlock(label='Title')), ('subtitle', wagtail.wagtailcore.blocks.CharBlock(label='Subtitle')), ('image', wagtail.wagtailimages.blocks.ImageChooserBlock(label='Image')), ('description', wagtail.wagtailcore.blocks.RichTextBlock(label='Description', required=False))))), ('row', noripyt.blocks.RowBlock(wagtail.wagtailcore.blocks.StructBlock((('width', wagtail.wagtailcore.blocks.ChoiceBlock(choices=[(1, '8\u202f%'), (2, '16\u202f%'), (3, '25\u202f%'), (4, '33\u202f%'), (5, '41\u202f%'), (6, '50\u202f%'), (7, '58\u202f%'), (8, '66\u202f%'), (9, '75\u202f%'), (10, '83\u202f%'), (11, '91\u202f%'), (12, '100\u202f%')], default=6, label='Width')), ('body', wagtail.wagtailcore.blocks.StreamBlock((('showcase', wagtail.wagtailcore.blocks.StructBlock((('title', wagtail.wagtailcore.blocks.CharBlock(label='Title')), ('subtitle', wagtail.wagtailcore.blocks.CharBlock(label='Subtitle')), ('image', wagtail.wagtailimages.blocks.ImageChooserBlock(label='Image')), ('description', wagtail.wagtailcore.blocks.RichTextBlock(label='Description', required=False))))), ('text', wagtail.wagtailcore.blocks.RichTextBlock())), label='Body', required=True))))))), verbose_name='body')),
+                ('body', wagtail.wagtailcore.fields.StreamField((), verbose_name='body')),
             ],
             options={
                 'abstract': False,

@@ -16,6 +16,8 @@
 {% endblock %}
 
 {% block content %}
+  {{ page.body }}
+
   <div id="intro">
     {# FIXME: Make this dynamic #}
     <h4><em>Être « mini » est un avantage :</em></h4>
@@ -37,14 +39,14 @@
         <div class="well well-primary">
           <h3>Site classique</h3>
           <h5>(<a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_gestion_de_contenu" target="_blank">CMS</a>, blog)</h5>
-          —
-          <ul class="list-unstyled">
-            <li>Design responsif sur mesure</li>
-            <li>Grande simplicité d’utilisation</li>
-            <li>Extensible</li>
-            <li>—</li>
-            <li>Suivi sur le long terme</li>
-          </ul>
+          <p class="text-center">
+            —<br />
+            Design responsif sur mesure<br />
+            Grande simplicité d’utilisation<br />
+            Extensible<br />
+            —<br />
+            Suivi sur le long terme<br />
+          </p>
           <a href="/fr/realisations/#classiques" class="btn btn-default">Exemples</a>
         </div>
       </div>
@@ -52,39 +54,33 @@
         <div class="well well-primary">
           <h3>Projet web spécifique</h3>
           <h5>Toute taille & domaine</h5>
-          —
-          <ul class="list-unstyled">
-            <li>
-              <a href="https://fr.wikipedia.org/wiki/Base_de_donn%C3%A9es_relationnelle" target="_blank">Base de données relationnelle</a>
-            </li>
-            <li>Moteur de recherche</li>
-            <li>
-              Interopérable
-              (<a href="https://fr.wikipedia.org/wiki/Interface_de_programmation" target="_blank">API</a>,
-              <a href="https://fr.wikipedia.org/wiki/Robot_d%27indexation" target="_blank">crawler</a>, etc.)
-            </li>
-            <li>—</li>
-            <li>Suivi sur le long terme</li>
-          </ul>
+          <p class="text-center">
+            —<br />
+            <a href="https://fr.wikipedia.org/wiki/Base_de_donn%C3%A9es_relationnelle" target="_blank">Base de données relationnelle</a><br />
+            Moteur de recherche<br />
+            Interopérable
+            (<a href="https://fr.wikipedia.org/wiki/Interface_de_programmation" target="_blank">API</a>,
+            <a href="https://fr.wikipedia.org/wiki/Robot_d%27indexation" target="_blank">crawler</a>, etc.)<br />
+            —<br />
+            Suivi sur le long terme<br />
+          </p>
           <a href="/fr/realisations/#specifiques" class="btn btn-default">Exemples</a>
         </div>
       </div>
       <div class="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3">
         <div class="well well-primary">
           <h3>Conseil</h3>
-          <ul class="list-unstyled">
-            <li>Accompagnement à la création de projet</li>
-            <li>—</li>
-            <li>Gestion des données</li>
-            <li>Stratégie à long terme</li>
-            <li>—</li>
-            <li>
-              <a href="https://www.python.org/" target="_blank">Python</a>,
-              <a href="https://www.djangoproject.com/" target="_blank">Django</a>,
-              <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a>
-            </li>
-            <li>Performance technique</li>
-          </ul>
+          <p class="text-center">
+            Accompagnement à la création de projet<br />
+            —<br />
+            Gestion des données<br />
+            Stratégie à long terme<br />
+            —<br />
+            <a href="https://www.python.org/" target="_blank">Python</a>,
+            <a href="https://www.djangoproject.com/" target="_blank">Django</a>,
+            <a href="http://www.postgresql.org/" target="_blank">PostgreSQL</a><br />
+            Performance technique<br />
+          </p>
         </div>
       </div>
     </div>
@@ -115,7 +111,7 @@
     </ul>
 
     <h3>Outils principaux</h3>
-    —
+    <h5>—</h5>
 
     <div class="row">
       <div class="col-md-3 col-sm-6">
@@ -169,6 +165,5 @@
         </div>
       </div>
     </div>
-
-{#  {{ page.body }}#}
+  </div>
 {% endblock %}

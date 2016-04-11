@@ -139,9 +139,20 @@ hr {
 }
 
 .well {
+  display: table;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 15px;
   padding: $well-padding;
+  &, p, h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+  }
+  h3 {
+    margin-top: 10px;
+  }
+  .buttons {
+    display: table-row;
+  }
   &.well-primary {
     background: $well-primary-bg;
     border-color: $well-primary-border;
@@ -252,9 +263,9 @@ hr {
   }
 }
 
-.anchor {
+.block-anchor {
   position: relative;
-  .anchor-inner {
+  .anchor {
     position: absolute;
     top: -$navbar-height;
   }
@@ -279,48 +290,20 @@ hr {
     }
   }
   main {
-    margin-top: 0;
-    text-align: center;
-    #intro {
-      margin: $grid-gutter-width 0;
-      h4 {
-        font-weight: normal;
-      }
-    }
-    #technologies {
-      ul {
-        display: inline-block;
-        max-width: 600px;
-        list-style: none;
-        li {
-          position: relative;
-          text-align: left;
-          &:before {
-            position: absolute;
-            top: 6px;
-            left: -25px;
-            @include fa-icon;
-            content: $fa-var-hand-o-right;
-          }
-        }
-      }
-      .well {
-        display: table;
-        width: 100%;
-        h3 {
-          margin-top: 10px;
-        }
-        .buttons {
-          display: table-row;
-        }
-        @media (min-width: $screen-sm-min) {
-          height: 211px;
-        }
-        @media (min-width: $screen-md-min) {
-          height: 230px;
-        }
-        @media (min-width: $screen-lg-min) {
-          height: 211px;
+    margin-top: $grid-gutter-width;
+    ul {
+      max-width: 600px;
+      margin: 0 auto;
+      list-style: none;
+      li {
+        position: relative;
+        text-align: left;
+        &:before {
+          position: absolute;
+          top: 6px;
+          left: -25px;
+          @include fa-icon;
+          content: $fa-var-hand-o-right;
         }
       }
     }

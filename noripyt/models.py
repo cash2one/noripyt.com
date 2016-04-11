@@ -9,7 +9,7 @@ from wagtail.wagtailcore.blocks import RichTextBlock
 from wagtail.wagtailcore.fields import StreamField
 from wagtail.wagtailcore.models import Page
 
-from .blocks import ShowcaseBlock, row_block, AnchoredRichTextBlock
+from .blocks import ShowcaseBlock, AnchorBlock, CardBlock, RowBlock
 from .constants import ICONS
 
 
@@ -68,8 +68,10 @@ class TranslatablePageMixin(Model):
 class HomePage(TranslatablePageMixin, Page):
     body = StreamField([
         ('text', RichTextBlock(label=_('Text'))),
+        ('anchor', AnchorBlock()),
+        ('card', CardBlock()),
         ('showcase', ShowcaseBlock()),
-        ('row', row_block),
+        ('row', RowBlock()),
     ], verbose_name=_('body'))
 
     content_panels = Page.content_panels + [
@@ -83,9 +85,10 @@ class HomePage(TranslatablePageMixin, Page):
 class Article(TranslatablePageMixin, Page):
     body = StreamField([
         ('text', RichTextBlock(label=_('Text'))),
-        ('anchored_text', AnchoredRichTextBlock()),
+        ('anchor', AnchorBlock()),
+        ('card', CardBlock()),
         ('showcase', ShowcaseBlock()),
-        ('row', row_block),
+        ('row', RowBlock()),
     ], verbose_name=_('body'))
 
     content_panels = Page.content_panels + [
