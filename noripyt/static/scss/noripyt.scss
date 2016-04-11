@@ -164,7 +164,7 @@ hr {
       transition-property: color, background, border-radius;
       transition-duration: 0.3s;
       transition-timing-function: ease-out;
-      &:hover {
+      &:hover, &:active, &:focus {
         color: $well-primary-bg;
         background: $well-primary-color;
         border-radius: $border-radius-small;
