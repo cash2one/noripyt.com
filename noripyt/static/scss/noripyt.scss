@@ -172,6 +172,9 @@ hr {
       }
     }
   }
+  &.well-default {
+    background: lighten($body-bg, 5%);
+  }
 }
 
 .no-transition {
