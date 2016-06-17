@@ -27,9 +27,9 @@ LOCAL_MEDIA = './media/'
 
 
 @contextmanager
-def workon(settings_module='noripyt.settings.prod'):
-    with cd(PROJECT_PATH):
-        with path(VIRTUALENV_PATH / 'bin', behavior='prepend'):
+def workon(settings_module='noripyt.settings.production'):
+    with cd(str(PROJECT_PATH)):
+        with path(str(VIRTUALENV_PATH / 'bin'), behavior='prepend'):
             with shell_env(DJANGO_SETTINGS_MODULE=settings_module):
                 yield
 
@@ -41,8 +41,7 @@ def upgrade_ubuntu():
 
 def pip_install():
     with workon():
-        run('pip install -r requirements/base.txt')
-        run('pip install -r requirements/prod.txt')
+        run('pip install -r requirements.txt')
 
 
 def update_submodules():
