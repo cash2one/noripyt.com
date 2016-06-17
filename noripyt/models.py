@@ -128,5 +128,10 @@ def editor_css():
             li.sequence-member .struct-block .fields {
                 width: calc(100% - 100px);  // 100 pixels for the reorder/delete buttons.
             }
+
+            .object .richtext.expanded {
+                padding-top: 1em;
+                padding-bottom: 1em;
+            }
         </style>
     """
