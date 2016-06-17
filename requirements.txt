@@ -7,6 +7,9 @@ django-libsass==0.6
 csscompressor==0.9.4
 django-compressor-autoprefixer==0.1.0
 
+# Deployment
+Fabric3==1.11.1.post1
+
 # Wagtail dependencies
 beautifulsoup4==4.4.1
 django-appconf==1.0.1
