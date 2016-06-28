@@ -137,7 +137,7 @@ hr {
 .fa {
   vertical-align: -10%;
   // Workaround for Adblock Plus for Chrome on Mac.
-  &.twitter::before {
+  &.cipher::before {  // Twitter
     content: "";
   }
 }
