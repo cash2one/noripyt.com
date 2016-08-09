@@ -18,7 +18,7 @@
           <li{% if page.get_ancestors(inclusive=True).filter(pk=sub_page.pk).exists() %} class="active"{% endif %}>
             <a href="{{ pageurl(sub_page) }}">
               {% if sub_page.icon %}<i class="fa fa-{{ sub_page.icon }}"></i>{% endif %}
-              {{ sub_page }}
+              {{ page.seo_title|default(page.title, true) }}
             </a>
           </li>
         {% endfor %}
