@@ -129,9 +129,13 @@ def editor_css():
                 width: calc(100% - 100px);  // 100 pixels for the reorder/delete buttons.
             }
 
-            .object .richtext.expanded {
+            .object.stream-field .widget-hallo_rich_text_area .richtext.expanded {
                 padding-top: 1em;
                 padding-bottom: 1em;
+            }
+            .object.stream-field .widget-hallo_rich_text_area.full .richtext.expanded {
+                padding-top: 2em;
+                padding-bottom: 2em;
             }
         </style>
     """

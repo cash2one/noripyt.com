@@ -4,7 +4,6 @@ from jinja2 import Markup
 from wagtail.wagtailcore.blocks import (
     StructBlock, CharBlock, RichTextBlock, ChoiceBlock, StreamBlock, ListBlock,
     BooleanBlock, PageChooserBlock, URLBlock)
-from wagtail.wagtailcore.rich_text import RichText
 from wagtail.wagtailimages.blocks import ImageChooserBlock
 
 from .constants import WIDTH_RATIOS
@@ -12,19 +11,7 @@ from .constants import WIDTH_RATIOS
 
 # TODO: Report to wagtail that:
 #       - labels should be `capfirst`ed when rendered
-#       - `RichTextBlock` has a wrong toolbar position
 #       - non-standard spaces are replaced with standard spaces in RichText
-# FIXME: FixedRichText & FixedRichTextBlock are a workaround to this issue:
-#        https://github.com/torchbox/wagtail/issues/2336
-
-class FixedRichText(RichText):
-    def __bool__(self):
-        return bool(self.source)
-
-
-class FixedRichTextBlock(RichTextBlock):
-    def to_python(self, value):
-        return FixedRichText(value)
 
 
 # FIXME: Remove when this issue is fixed:
@@ -78,7 +65,7 @@ class CardBlock(FixedJinja2Mixin, StructBlock):
     )
     type = ChoiceBlock(choices=TYPES, default='default', label=_('Type'))
     title = CharBlock(label=_('Title'))
-    body = FixedRichTextBlock(required=False, label=_('Body'))
+    body = RichTextBlock(required=False, label=_('Body'))
     buttons = ListBlock(ButtonBlock(required=False), label=_('Buttons'))
 
     class Meta:
@@ -90,7 +77,7 @@ class ShowcaseBlock(FixedJinja2Mixin, StructBlock):
     title = CharBlock(label=_('Title'))
     subtitle = CharBlock(required=False, label=_('Subtitle'))
     image = ImageChooserBlock(label=_('Image'))
-    description = FixedRichTextBlock(required=False, label=_('Description'))
+    description = RichTextBlock(required=False, label=_('Description'))
     width_ratio = ChoiceBlock(
         default='4/3', choices=[(r, r) for r in WIDTH_RATIOS],
         label=_('Width ratio'))
@@ -133,7 +120,7 @@ class ColumnBlock(FixedJinja2Mixin, StructBlock):
     body = StreamBlock([
         ('card', CardBlock()),
         ('showcase', ShowcaseBlock()),
-        ('text', FixedRichTextBlock()),
+        ('text', RichTextBlock()),
     ], required=True, label=_('Body'))
 
     class Meta:
