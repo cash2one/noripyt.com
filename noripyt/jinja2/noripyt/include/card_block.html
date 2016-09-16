@@ -4,7 +4,7 @@
   {% if value.buttons %}
     <div class="buttons">
       {% for button in value.buttons %}
-        {{ button }}
+        {{ button|safe }}
       {% endfor %}
     </div>
   {% endif %}

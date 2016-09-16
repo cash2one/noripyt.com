@@ -89,7 +89,6 @@ TEMPLATES = [
         ],
         'APP_DIRS': True,
         'OPTIONS': {
-            'autoescape': False,
             'environment': 'noripyt.jinja2.environment',
             'extensions': [
                 'jinja2.ext.i18n',

@@ -27,9 +27,9 @@
 
 <div class="row" id="row-{{ value.block.creation_counter }}">
   {% for col in value.columns %}
-    <div class="visible-xs-inline">{{ col }}</div>
-    <div class="visible-sm-inline">{{ col }}</div>
-    <div class="visible-md-inline">{{ col }}</div>
-    <div class="visible-lg-inline">{{ col }}</div>
+    <div class="visible-xs-inline">{{ col|safe }}</div>
+    <div class="visible-sm-inline">{{ col|safe }}</div>
+    <div class="visible-md-inline">{{ col|safe }}</div>
+    <div class="visible-lg-inline">{{ col|safe }}</div>
   {% endfor %}
 </div>
