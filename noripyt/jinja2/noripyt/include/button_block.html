@@ -1,4 +1,3 @@
 {% if value.page or value.url %}
-  {# FIXME: Replace `page.url` with `pageurl(page)` when this issue is fixed: https://github.com/torchbox/wagtail/issues/1743 #}
-  <a href="{{ value.url|default(value.page.url, true) }}{% if value.anchor %}#{{ value.anchor }}{% endif %}" class="btn btn-{{ value.type }}{% if value.full_width %} btn-block{% endif %}">{{ value.text|default(value.page, true) }}</a>
+  <a href="{% if value.url %}{{ value.url }}{% else %}{{ pageurl(value.page) }}{% endif %}{% if value.anchor %}#{{ value.anchor }}{% endif %}" class="btn btn-{{ value.type }}{% if value.full_width %} btn-block{% endif %}">{{ value.text|default(value.page, true) }}</a>
 {% endif %}

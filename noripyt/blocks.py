@@ -1,6 +1,5 @@
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
-from jinja2 import Markup
 from wagtail.wagtailcore.blocks import (
     StructBlock, CharBlock, RichTextBlock, ChoiceBlock, StreamBlock, ListBlock,
     BooleanBlock, PageChooserBlock, URLBlock)
@@ -14,20 +13,13 @@ from .constants import WIDTH_RATIOS
 #       - non-standard spaces are replaced with standard spaces in RichText
 
 
-# FIXME: Remove when this issue is fixed:
-#        https://github.com/torchbox/wagtail/issues/2330
-class FixedJinja2Mixin:
-    def render(self, value):
-        return Markup(super(FixedJinja2Mixin, self).render(value))
-
-
-class AnchorBlock(FixedJinja2Mixin, CharBlock):
+class AnchorBlock(CharBlock):
     class Meta:
         label = _('Anchor')
         template = 'noripyt/include/anchor_block.html'
 
 
-class ButtonBlock(FixedJinja2Mixin, StructBlock):
+class ButtonBlock(StructBlock):
     TYPES = (
         ('default', _('Default')),
         ('primary', _('Primary')),
@@ -58,7 +50,7 @@ class ButtonBlock(FixedJinja2Mixin, StructBlock):
         return out
 
 
-class CardBlock(FixedJinja2Mixin, StructBlock):
+class CardBlock(StructBlock):
     TYPES = (
         ('default', _('Default')),
         ('primary', _('Primary')),
@@ -73,7 +65,7 @@ class CardBlock(FixedJinja2Mixin, StructBlock):
         template = 'noripyt/include/card_block.html'
 
 
-class ShowcaseBlock(FixedJinja2Mixin, StructBlock):
+class ShowcaseBlock(StructBlock):
     title = CharBlock(label=_('Title'))
     subtitle = CharBlock(required=False, label=_('Subtitle'))
     image = ImageChooserBlock(label=_('Image'))
@@ -93,7 +85,7 @@ class ShowcaseBlock(FixedJinja2Mixin, StructBlock):
         return 'fill-%dx%d' % (container_width, container_width / width_ratio)
 
 
-class ColumnBlock(FixedJinja2Mixin, StructBlock):
+class ColumnBlock(StructBlock):
     COL_COUNT = 12
     COL_CHOICES = [(i, '%d %%' % ((100 * i) // 12))
                    for i in range(COL_COUNT + 1)]
@@ -142,7 +134,7 @@ class ColumnBlock(FixedJinja2Mixin, StructBlock):
         return out
 
 
-class RowBlock(FixedJinja2Mixin, StructBlock):
+class RowBlock(StructBlock):
     height_xs = CharBlock(required=False, label=_('Height [extra-small]'))
     height_sm = CharBlock(required=False, label=_('Height [small]'))
     height_md = CharBlock(required=False, label=_('Height [medium]'))
