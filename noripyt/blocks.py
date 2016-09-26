@@ -59,6 +59,10 @@ class CardBlock(StructBlock):
     title = CharBlock(label=_('Title'))
     body = RichTextBlock(required=False, label=_('Body'))
     buttons = ListBlock(ButtonBlock(required=False), label=_('Buttons'))
+    height_xs = CharBlock(required=False, label=_('Height [extra-small]'))
+    height_sm = CharBlock(required=False, label=_('Height [small]'))
+    height_md = CharBlock(required=False, label=_('Height [medium]'))
+    height_lg = CharBlock(required=False, label=_('Height [large]'))
 
     class Meta:
         label = _('Card')
@@ -85,7 +89,7 @@ class ShowcaseBlock(StructBlock):
         return 'fill-%dx%d' % (container_width, container_width / width_ratio)
 
 
-class ColumnBlock(StructBlock):
+class RowBlock(StructBlock):
     COL_COUNT = 12
     COL_CHOICES = [(i, '%d %%' % ((100 * i) // 12))
                    for i in range(COL_COUNT + 1)]
@@ -116,11 +120,12 @@ class ColumnBlock(StructBlock):
     ], required=True, label=_('Body'))
 
     class Meta:
-        label = _('Column')
-        template = 'noripyt/include/column_block.html'
+        label = _('Row')
+        template = 'noripyt/include/row_block.html'
+
 
     def clean(self, value):
-        out = super(ColumnBlock, self).clean(value)
+        out = super(RowBlock, self).clean(value)
         for screen_size in ('xs', 'sm', 'md', 'lg'):
             width = 'width_' + screen_size
             offset = 'offset_' + screen_size
@@ -132,15 +137,3 @@ class ColumnBlock(StructBlock):
                 raise ValidationError(msg, params={width: [msg],
                                                    offset: [msg]})
         return out
-
-
-class RowBlock(StructBlock):
-    height_xs = CharBlock(required=False, label=_('Height [extra-small]'))
-    height_sm = CharBlock(required=False, label=_('Height [small]'))
-    height_md = CharBlock(required=False, label=_('Height [medium]'))
-    height_lg = CharBlock(required=False, label=_('Height [large]'))
-    columns = ListBlock(ColumnBlock(), label=_('Columns'))
-
-    class Meta:
-        label = _('Row')
-        template = 'noripyt/include/row_block.html'

@@ -1,35 +1,7 @@
-{% compress css %}
-  <style type="text/x-scss">
-    #row-{{ value.block.creation_counter }} {
-      {% if value.height_xs %}
-        .visible-xs-inline .well {
-          height: {{ value.height_xs }};
-        }
-      {% endif %}
-      {% if value.height_sm %}
-        .visible-sm-inline .well {
-          height: {{ value.height_sm }};
-        }
-      {% endif %}
-      {% if value.height_md %}
-        .visible-md-inline .well {
-          height: {{ value.height_md }};
-        }
-      {% endif %}
-      {% if value.height_lg %}
-        .visible-lg-inline .well {
-          height: {{ value.height_lg }};
-        }
-      {% endif %}
-    }
-  </style>
-{% endcompress %}
-
-<div class="row" id="row-{{ value.block.creation_counter }}">
-  {% for col in value.columns %}
-    <div class="visible-xs-inline">{% include_block col %}</div>
-    <div class="visible-sm-inline">{% include_block col %}</div>
-    <div class="visible-md-inline">{% include_block col %}</div>
-    <div class="visible-lg-inline">{% include_block col %}</div>
+<div class="row">
+  {% for child in value.body %}
+    <div class="col-xs-{{ value.width_xs }} col-sm-{{ value.width_sm }} col-md-{{ value.width_md }} col-lg-{{ value.width_lg }}{% if loop.first %} col-xs-offset-{{ value.offset_xs }} col-sm-offset-{{ value.offset_sm }} col-md-offset-{{ value.offset_md }} col-lg-offset-{{ value.offset_lg }}{% endif %}">
+      {% include_block child %}
+    </div>
   {% endfor %}
 </div>

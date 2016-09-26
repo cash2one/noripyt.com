@@ -91,7 +91,9 @@ TEMPLATES = [
         'OPTIONS': {
             'environment': 'noripyt.jinja2.environment',
             'extensions': [
+                'jinja2.ext.do',
                 'jinja2.ext.i18n',
+                'jinja2.ext.with_',
                 'wagtail.wagtailcore.jinja2tags.core',
                 'wagtail.wagtailadmin.jinja2tags.userbar',
                 'wagtail.wagtailimages.jinja2tags.images',
@@ -166,6 +168,14 @@ MEDIA_URL = '/media/'
 
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'change_me')
+
+
+AUTH_PASSWORD_VALIDATORS = [
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+]
 
 
 # Wagtail settings

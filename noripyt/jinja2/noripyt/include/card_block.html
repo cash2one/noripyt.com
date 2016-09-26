@@ -1,11 +1,16 @@
-<div class="well well-{{ value.type }}">
-  <h3>{{ value.title }}</h3>
-  {{ value.body|richtext }}
-  {% if value.buttons %}
-    <div class="buttons">
-      {% for button in value.buttons %}
-        {% include_block button %}
-      {% endfor %}
+{% for size in ('xs', 'sm', 'md', 'lg') %}
+  {% set height = value['height_' + size] %}
+  <div class="visible-{{ size }}">
+    <div class="well well-{{ value.type }}"{% if height %} style="height: {{ height }};"{% endif %}>
+      <h3>{{ value.title }}</h3>
+      {{ value.body|richtext }}
+      {% if value.buttons %}
+        <div class="buttons">
+          {% for button in value.buttons %}
+            {% include_block button %}
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
-  {% endif %}
-</div>
+  </div>
+{% endfor %}
