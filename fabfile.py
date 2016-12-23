@@ -34,6 +34,31 @@ def workon(settings_module='noripyt.settings.production'):
                 yield
 
 
+@task
+def setup_firewall():
+    run('ufw disable')
+    run('ufw default deny')
+    run('ufw allow 80')
+    run('ufw allow 22')
+    run('ufw allow 443')
+    run('ufw enable')
+
+
+@task
+def create_ssl_certificate():
+    run('apt install letsencrypt')
+    run('systemctl stop nginx')
+    try:
+        run('letsencrypt certonly --standalone -d noripyt.com')
+    finally:
+        run('systemctl start nginx')
+
+
+@task
+def renew_ssl_certificate():
+    run('letsencrypt renew')
+
+
 def upgrade_ubuntu():
     sudo('apt-get update')
     sudo('apt-get upgrade')
